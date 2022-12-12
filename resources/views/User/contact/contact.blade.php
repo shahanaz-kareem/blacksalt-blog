@@ -55,10 +55,25 @@
       </div>
 
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<!-- @if(Session::has('store'))
+<span>{{Session::get('store')}}</span>
+@endif -->
 
     <div class="row mt-5 justify-content-center" data-aos="fade-up">
       <div class="col-lg-10">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form action="{{url('store')}}" method="post" role="form" class="php-email">
+          @csrf
+          
           <div class="row">
             <div class="col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -68,18 +83,23 @@
             </div>
           </div>
           <div class="form-group mt-3">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Subject" required>
           </div>
           <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
           </div>
-          <div class="my-3">
+          <!-- <div class="my-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
+          </div> -->
+          <div class="form-group form-check">
+    <input type="checkbox" value="1" name="terms" class="form-check-input" id="exampleCheck1" required>
+    <label class="form-check-label" for="exampleCheck1">Accept terms and conditions</label>
+  </div>
+          <div class="text-center"><button type="submit" class="contact1" id="butsave">Register</button></div>
         </form>
+        
       </div>
 
     </div>
@@ -89,5 +109,25 @@
 
 </main><!-- End #main -->
 
+
+<style>
+  .php-email
+  {
+    padding-bottom: 8px;
+  }
+  .contact1
+  {
+    background: #f03c02;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+  }
+  .form-check-input:checked {
+    background-color: #f03c02;
+    border-color: #f03c02;
+}
+</style>
 
 @endsection

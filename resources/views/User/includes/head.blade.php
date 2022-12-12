@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" integrity="sha512-hwwdtOTYkQwW2sedIsbuP1h0mWeJe/hFOfsvNKpRB3CkRxq8EW7QMheec1Sgd8prYxGm1OM9OZcGW7/GUud5Fw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- =======================================================
   * Template Name: Flattern - v4.9.1
@@ -67,7 +68,7 @@
         <ul>
           <li><a  href="{{url('/')}}">Home</a></li>
           <li><a  href="{{url('about')}}">About</a></li>
-          <li><a href="{{url('service')}}">Services</a></li>
+          <!-- <li><a href="{{url('service')}}">Services</a></li> -->
           <!-- <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
@@ -89,7 +90,8 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> -->
-          <li><a href="{{url('contact')}}">Contact</a></li>
+          <li><a href="{{url('contact')}}">Registration</a></li>
+          <li><a href="{{url('ConditionsPolicy')}}">Conditions & Policy</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -180,10 +182,18 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha512-MqEDqB7me8klOYxXXQlB4LaNf9V9S0+sG1i8LtPOYmHqICuEZ9ZLbyV3qIfADg2UJcLyCm4fawNiFvnYbcBJ1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  @if(Session::has('store'))
+<script>
+  swal("Registered Successfully","{!! Session::get('store')!!}","success",{ button:"OK"});
+</script>
+@endif
 </body>
 
 </html>

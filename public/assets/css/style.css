@@ -1515,7 +1515,7 @@ section {
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type=submit] {
+/* .contact .php-email-form button[type=submit] {
   background: #f03c02;
   border: 0;
   padding: 10px 24px;
@@ -1526,7 +1526,7 @@ section {
 
 .contact .php-email-form button[type=submit]:hover {
   background: #fd5c28;
-}
+} */
 
 @-webkit-keyframes animate-loading {
   0% {
